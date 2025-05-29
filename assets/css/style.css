@@ -1,0 +1,32 @@
+:root {
+	--primary-color: #4f4789;
+	--shadow-primary: #201335;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	color: #333;
+	line-height: 1.6;
+}
+
+nav ul {
+	list-style: none;
+}
+
+nav ul a {
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+nav .logo img {
+	width: 50px;
+	height: auto;
+}
