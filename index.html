@@ -32,35 +32,75 @@
 
 	<!-- Header -->
 	<body class="container">
-		<header class="d-flex flex-column justify-self-center mt-15">
+		<header>
 			<nav
-				class="navbar-expand-lg bg-body-tertiary d-flex justify-content-between align-items-center gap-3 w-70"
+				class="navbar navbar-expand-lg navbar-dark bg-gradient-custom shadow-lg rounded-4 my-4 py-3 px-4"
 			>
-				<div class="logo d-flex align-items-center px-3 h-2 w-2">
-					<a href="#">
+				<div class="container-fluid">
+					<a class="navbar-brand d-flex align-items-center gap-2" href="#">
 						<img
 							src="assets/img/favicon.png"
 							alt="Dragon Ball API Logo"
-							class="img-fluid img-logo"
+							width="60"
+							height="60"
+							class="rounded-circle border border-3 border-warning shadow"
 						/>
+						<span class="fs-2 fw-bold text-warning" style="letter-spacing: 2px"
+							>Dragon Ball API</span
+						>
 					</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNav"
+						aria-controls="navbarNav"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+						<ul class="navbar-nav gap-3">
+							<li class="nav-item">
+								<a class="nav-link active fs-5" aria-current="page" href="#">Inicio</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link fs-5" href="#">Personajes</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<ul class="navbar-nav d-flex flex-row gap-3 px-3 color-black">
-					<li><a href="#">Inicio</a></li>
-					<li><a href="#">Personajes</a></li>
-				</ul>
 			</nav>
 		</header>
+
 		<section class="container mt-5">
-			<div class="d-flex flex-row align-items-center justify-content-center">
-				<input
-					type="text"
-					id="searchInput"
-					class="col-4"
-					placeholder="Buscar personaje..."
-				/>
-				<button id="btn-Search" class="btn btn-primary col-2 mx-1">Buscar</button>
-				<button id="btn-Reset" class="btn btn-primary col-2 mx-1">Reset</button>
+			<div class="row justify-content-center mb-4">
+				<div class="col-md-8">
+					<div class="input-group shadow-lg rounded-4 bg-white p-3">
+						<input
+							type="text"
+							id="searchInput"
+							class="form-control form-control-lg border-0"
+							placeholder="Buscar personaje..."
+							aria-label="Buscar personaje"
+						/>
+						<button
+							id="btn-Search"
+							class="btn btn-warning btn-lg px-4 fw-bold shadow-sm"
+							type="button"
+						>
+							Buscar
+						</button>
+						<button
+							id="btn-Reset"
+							class="btn btn-outline-secondary btn-lg px-4 fw-bold shadow-sm"
+							type="button"
+						>
+							Reset
+						</button>
+					</div>
+				</div>
 			</div>
 
 			<!-- CARDS -->
@@ -87,5 +127,6 @@
 			integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
 			crossorigin="anonymous"
 		></script>
+		<script src="assets/js/script.js"></script>
 	</body>
 </html>
