@@ -78,7 +78,7 @@ const mostrarPersonaje = async (pagina = 1) => {
 	const dataPersonajes = data.items;
 
 	// Espera artificial para ver el loader (por ejemplo, 1 segundo)
-	await new Promise((resolve) => setTimeout(resolve, 1000));
+	await new Promise((resolve) => setTimeout(resolve, 0));
 
 	ocultarLoader();
 	if (!dataPersonajes || dataPersonajes.length === 0) {
@@ -87,17 +87,17 @@ const mostrarPersonaje = async (pagina = 1) => {
 	}
 	dataPersonajes.forEach((personaje) => {
 		contenedorData.innerHTML += `
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 pb-3 d-flex justify-content-center" data-id=${personaje.id}>
-                <div class="card personaje-card shadow-sm border-0">
-                    <img class="card-img-top rounded-top" src="${personaje.image}" alt="${personaje.name}" />
-                    <div class="card-body">
-                        <h5 class="card-title">${personaje.name}</h5>
-                        <p class="card-text">${personaje.race} - ${personaje.gender}</p>
-                        <button class="btn btn-success btn-ver-detalles" id="btn-ver-${personaje.id}">Ver más</button>
-                    </div>
-                </div>
-            </div>
-        `;
+				<div class="col-12 col-sm-6 col-md-4 col-lg-3 pb-3 d-flex justify-content-center" data-id=${personaje.id}>
+					<div class="card personaje-card shadow-sm border-0">
+						<img class="card-img-top rounded-top" src="${personaje.image}" alt="${personaje.name}" />
+						<div class="card-body d-flex flex-column align-items-center">
+							<h5 class="card-title d-flex align-self-center ">${personaje.name}</h5>
+							<p class="card-text">${personaje.race} - ${personaje.gender}</p>
+							<button class="btn btn-success btn-ver-detalles">Ver más</button>
+						</div>
+					</div>
+				</div>
+			`;
 	});
 	cargando = false;
 };
@@ -165,8 +165,8 @@ async function buscarPersonajes() {
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3 pb-3 d-flex justify-content-center" data-id=${personaje.id}>
 					<div class="card personaje-card shadow-sm border-0">
 						<img class="card-img-top rounded-top" src="${personaje.image}" alt="${personaje.name}" />
-						<div class="card-body">
-							<h5 class="card-title">${personaje.name}</h5>
+						<div class="card-body d-flex flex-column align-items-center">
+							<h5 class="card-title d-flex align-self-center ">${personaje.name}</h5>
 							<p class="card-text">${personaje.race} - ${personaje.gender}</p>
 							<button class="btn btn-success btn-ver-detalles">Ver más</button>
 						</div>
