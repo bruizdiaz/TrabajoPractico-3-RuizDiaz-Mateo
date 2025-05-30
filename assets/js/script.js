@@ -47,15 +47,42 @@ const verDetalles = async (id) => {
 	}
 };
 
+// === Indicador visual de carga ===
+function mostrarLoader() {
+	if (!document.getElementById('loader-scroll')) {
+		const loader = document.createElement('div');
+		loader.id = 'loader-scroll';
+		loader.innerHTML = `
+            <div style="display:flex;justify-content:center;align-items:center;padding:1.5rem;">
+                <div class="spinner-border text-warning" role="status" style="width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+            </div>
+        `;
+		contenedorData.appendChild(loader);
+	}
+}
+
+function ocultarLoader() {
+	const loader = document.getElementById('loader-scroll');
+	if (loader) loader.remove();
+}
+
 // === Función para mostrar personajes en el DOM ===
 // Pide una página de personajes y los agrega como cards al contenedor
 const mostrarPersonaje = async (pagina = 1) => {
 	if (cargando || !hayMas) return; // Evita llamadas múltiples o si no hay más datos
 	cargando = true;
+	mostrarLoader();
 	const data = await cargarDatos(`${urlDragonBall}?page=${pagina}`);
 	const dataPersonajes = data.items;
+
+	// Espera artificial para ver el loader (por ejemplo, 1 segundo)
+	await new Promise((resolve) => setTimeout(resolve, 1000));
+
+	ocultarLoader();
 	if (!dataPersonajes || dataPersonajes.length === 0) {
-		hayMas = false; // Si no hay más personajes, detiene el scroll infinito
+		hayMas = false;
 		return;
 	}
 	dataPersonajes.forEach((personaje) => {
@@ -90,7 +117,7 @@ window.addEventListener('scroll', () => {
 		hayMas,
 	);
 	if (
-		window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
+		window.innerHeight + window.scrollY >= document.body.offsetHeight - 0 &&
 		!cargando &&
 		hayMas &&
 		!enBusqueda // Solo si no estás buscando

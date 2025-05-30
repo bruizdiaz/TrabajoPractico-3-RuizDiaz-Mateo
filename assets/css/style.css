@@ -137,3 +137,8 @@ nav .logo img {
 	box-shadow: 0 6px 18px rgba(79, 71, 137, 0.25);
 	outline: none;
 }
+
+#loader-scroll {
+	width: 100%;
+	text-align: center;
+}
