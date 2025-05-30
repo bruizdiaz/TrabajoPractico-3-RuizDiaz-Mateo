@@ -71,18 +71,21 @@ function ocultarLoader() {
 // === Función para mostrar personajes en el DOM ===
 // Pide una página de personajes y los agrega como cards al contenedor
 const mostrarPersonaje = async (pagina = 1) => {
-	if (cargando || !hayMas) return; // Evita llamadas múltiples o si no hay más datos
+	if (cargando) return; // Solo evita llamadas múltiples
 	cargando = true;
 	mostrarLoader();
 	const data = await cargarDatos(`${urlDragonBall}?page=${pagina}`);
 	const dataPersonajes = data.items;
 
 	// Espera artificial para ver el loader (por ejemplo, 1 segundo)
-	await new Promise((resolve) => setTimeout(resolve, 1000));
+	await new Promise((resolve) => setTimeout(resolve, 0));
 
 	ocultarLoader();
 	if (!dataPersonajes || dataPersonajes.length === 0) {
-		hayMas = false;
+		// Si no hay más personajes, vuelve a empezar desde la página 1
+		paginaActual = 1;
+		cargando = false;
+		mostrarPersonaje(paginaActual);
 		return;
 	}
 	dataPersonajes.forEach((personaje) => {
@@ -119,10 +122,8 @@ window.addEventListener('scroll', () => {
 	if (
 		window.innerHeight + window.scrollY >= document.body.offsetHeight - 0 &&
 		!cargando &&
-		hayMas &&
 		!enBusqueda // Solo si no estás buscando
 	) {
-		console.log('Cargando más personajes, página:', paginaActual + 1);
 		paginaActual++;
 		mostrarPersonaje(paginaActual);
 	}
