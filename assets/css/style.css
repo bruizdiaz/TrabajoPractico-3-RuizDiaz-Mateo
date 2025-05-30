@@ -85,3 +85,55 @@ nav .logo img {
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
 }
+
+#contenedor-data {
+	background: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente */
+	border-radius: 1.5rem;
+	box-shadow: 0 4px 24px rgba(79, 71, 137, 0.1);
+	padding: 2rem 1rem;
+	backdrop-filter: blur(2px); /* Efecto de desenfoque sutil */
+}
+
+#btn-Search {
+	background: linear-gradient(90deg, #ff9800 0%, #ffb347 100%);
+	color: #fff;
+	border: none;
+	border-radius: 0.7rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	box-shadow: 0 2px 8px rgba(255, 152, 0, 0.15);
+	transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+	margin: 2px;
+}
+
+#btn-Search:hover,
+#btn-Search:focus {
+	background: linear-gradient(90deg, #ff9800 0%, #ffb347 100%);
+	color: #fff;
+	transform: translateY(-2px) scale(1.04);
+	box-shadow: 0 6px 18px rgba(255, 152, 0, 0.25);
+	outline: none;
+}
+
+#btn-Reset {
+	background: linear-gradient(90deg, #ff9800 0%, #ffb347 100%);
+	color: #fff;
+	border: none;
+	border-radius: 0.7rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	box-shadow: 0 2px 8px rgba(79, 71, 137, 0.15);
+	transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+	margin: 2px;
+}
+
+#btn-Reset:hover,
+#btn-Reset:focus {
+	background: linear-gradient(90deg, #ff9800 0%, #ffb347 100%);
+	color: #fff;
+	transform: translateY(-2px) scale(1.04);
+	box-shadow: 0 6px 18px rgba(79, 71, 137, 0.25);
+	outline: none;
+}
